@@ -7,6 +7,17 @@ config.use_fancy_tab_bar = false
 
 -- FONTS
 config.font = wezterm.font("GeistMono Nerd Font")
+
+-- TODO: Set Font based on detected OS
+-- I don't think this works quite right, regardless it does update the font size
+local BinaryFormat = package.cpath:match("%p[\\|/]?%p(%a+)")
+if BinaryFormat == "dylib" then
+	config.font_size = 14.0
+else
+	config.font_size = 13.0
+end
+-- Explicily "unuse" local variable
+BinaryFormat = nil
 -- END FONTS
 
 -- COLORSCHEME
