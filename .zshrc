@@ -102,10 +102,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Neovim export
-export PATH="$PATH:/opt/nvim-linux64/bin"
+# Linux Neovim export
+# export PATH="$PATH:/opt/nvim-linux64/bin"
 
-# ALIASES
+# LINUX SPECIFIC ALIASES
 alias cdg='cd /mnt/Games/'
 alias goto-bg3='/mnt/Games/SteamLibrary/steamapps/compatdata/1086940/pfx/drive_c/users/steamuser/AppData/Local/'
 alias od='cd ~/Documents/obsidian-dev/.obsidian/plugins/'

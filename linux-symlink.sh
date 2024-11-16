@@ -18,7 +18,9 @@ ln -s $DOTFILES/.bashrc $HOME
 ln -s $DOTFILES/nvim $CONFIG/nvim
 
 # OH-MY-ZSH
-ln -s $DOTFILES/.oh-my-zsh $HOME
+# oh-my-zsh is a git repo itself, and I'm not managing it 
+# as a submodule
+# ln -s $DOTFILES/.oh-my-zsh $HOME
 
 # TMUX
 ln -s $DOTFILES/.tmux.conf $HOME
