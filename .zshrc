@@ -102,8 +102,11 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Linux Neovim export
-# export PATH="$PATH:/opt/nvim-linux64/bin"
+# Neovim export
+# Currently this should only apply for linux machines
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+	export PATH="$PATH:/opt/nvim-linux64/bin"
+fi
 
 # LINUX SPECIFIC ALIASES
 alias cdg='cd /mnt/Games/'
