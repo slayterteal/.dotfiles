@@ -1,0 +1,1 @@
+A personal collection of various configuration files for various different applications I use.
