@@ -21,10 +21,34 @@ function prompt {
 }
 
 # Aliases
+
+# git status
 function gitstatus {
     git status
 }
 Set-Alias -Name gs -Value gitstatus
+
+# Push commits to branch
+# will prompt for confirmation
+function GitPushOrigin {
+    $branch = git rev-parse --abbrev-ref HEAD 2>$null
+    
+    if(-not $branch) {
+        Write-Host "⚠️  Not inside a Git repository." -ForegroundColor Red
+        return
+    } 
+    
+    $confirmation = Read-Host "Push to '$branch'? [Y/N]"
+
+    if( $confirmation -match '^[Yy]$') {
+        # push commits to origin
+        git push origin $branch
+        Write-Host "✅ Pushed to '$branch'" -ForegroundColor Green
+    } else {
+        Write-Host "❌ Push cancelled." -ForegroundColor Yellow
+    }
+}
+Set-Alias -Name gpo -Value GitPushOrigin
 
 # Environment variable
 # $env:EDITOR = "code"
