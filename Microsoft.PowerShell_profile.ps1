@@ -7,7 +7,7 @@ function Get-GitBranch {
         $branch = git rev-parse --abbrev-ref HEAD 2>$null
         if($branch -and $branch -ne 'HEAD')
             {
-                return " | [$branch]"
+                return "$branch"
             }
     } catch {
         # no git branch found
@@ -17,7 +17,16 @@ function Get-GitBranch {
 
 # Set a custom prompt
 function prompt {
-    "PS $(Get-Location)$(Get-GitBranch)> "
+    $currentDir = Get-Location
+    $branch = Get-GitBranch
+
+    Write-Host "$currentDir" -NoNewLine -ForegroundColor Cyan
+    if($branch) {
+        Write-Host " | [" -NoNewLine
+        Write-Host "$branch" -NoNewLine -ForegroundColor Green
+        Write-Host "]" -NoNewLine
+    }
+    return "> "
 }
 
 # Aliases
