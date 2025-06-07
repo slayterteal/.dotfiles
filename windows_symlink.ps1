@@ -3,9 +3,28 @@
 # Creating symlinks in powershell:
 #   New-Item -ItemType SymbolicLink -Path <path_to_link> -Value <path_to_target>
 
-# Define source and destination
+function CreateSymLink {
+    param (
+        [string]$Destination,
+        [string]$Source
+    )
+
+    if(Test-Path $Destination) {
+        Write-Output "$Destination already exists"
+    }
+    else {
+        New-Item -ItemType SymbolicLink -Path $Destination -Target $Source
+    }
+}
+
+# Create the symlink for profile
 $source = "$HOME\.dotfiles\Microsoft.PowerShell_profile.ps1"
 $destination = "$HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
 
-# Create the symlink
-New-Item -ItemType SymbolicLink -Path $destination -Target $source
+CreateSymLink -Destination $destination -Source $source
+
+# Create symlink for neovim configuration
+$source = "$HOME\.dotfiles\nvim"
+$destination = "$HOME\AppData\Local\nvim"
+
+CreateSymLink -Destination $destination -Source $source
