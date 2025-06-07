@@ -43,7 +43,7 @@ function GitPushOrigin {
     $branch = git rev-parse --abbrev-ref HEAD 2>$null
     
     if(-not $branch) {
-        Write-Host "⚠️  Not inside a Git repository." -ForegroundColor Red
+        Write-Host "⚠️ Not inside a Git repository." -ForegroundColor Red
         return
     } 
     
