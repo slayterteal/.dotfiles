@@ -1,0 +1,10 @@
+{
+    "editor.fontFamily": "'GeistMono NF'",
+    "terminal.integrated.fontFamily": "'GeistMono NF'",
+    "editor.fontLigatures": true,
+    "workbench.colorTheme": "Catppuccin Frappé",
+    "workbench.iconTheme": "catppuccin-frappe",
+    "git.confirmSync": false,
+    "extensions.ignoreRecommendations": true,
+    "editor.lineNumbers": "relative"
+}
