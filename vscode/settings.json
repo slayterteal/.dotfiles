@@ -5,9 +5,17 @@
     "workbench.colorTheme": "Catppuccin Frappé",
     "workbench.iconTheme": "catppuccin-frappe",
     "git.confirmSync": false,
+    "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
+    // "vscode-neovim.neovimInitVimPaths.darwin": "~/.config/nvim",
+    // "vscode-neovim.neovimClean": true,
     "extensions.ignoreRecommendations": true,
     "editor.lineNumbers": "relative",
     "extensions.experimental.affinity": {
         "asvetliakov.vscode-neovim": 1
-    }
+    },
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "zenMode.centerLayout": false,
+    "zenMode.hideLineNumbers": false,
+    "zenMode.hideStatusBar": false
 }

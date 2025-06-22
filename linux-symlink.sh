@@ -31,3 +31,8 @@ ln -s $DOTFILES/.wezterm.lua $HOME
 # ZSH
 ln -s $DOTFILES/.zshrc $HOME
 ln -s $DOTFILES/.zshenv $HOME
+
+# if on mac set the VSCode settings in the correct spot
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    ln -s $DOTFILES/vscode/settings.json "$HOME/Library/Application Support/Code/User/settings.json" 
+fi
