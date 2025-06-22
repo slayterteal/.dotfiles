@@ -17,5 +17,6 @@
     "explorer.confirmDelete": false,
     "zenMode.centerLayout": false,
     "zenMode.hideLineNumbers": false,
-    "zenMode.hideStatusBar": false
+    "zenMode.hideStatusBar": false,
+    "editor.tabSize": 2
 }
