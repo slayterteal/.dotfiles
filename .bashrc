@@ -115,7 +115,14 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-. "$HOME/.cargo/env"
+#. "$HOME/.cargo/env"
 
 # ALIASES
-alias cdg='cd /mnt/Games/'
+
+# Not applicable for most GNU installs...
+# alias cdg='cd /mnt/Games/'
+
+# export the neovim path
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+	export PATH="$PATH:/opt/nvim-linux64/bin"
+fi

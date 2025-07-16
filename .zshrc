@@ -109,6 +109,6 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 fi
 
 # LINUX SPECIFIC ALIASES
-alias cdg='cd /mnt/Games/'
-alias goto-bg3='/mnt/Games/SteamLibrary/steamapps/compatdata/1086940/pfx/drive_c/users/steamuser/AppData/Local/'
-alias od='cd ~/Documents/obsidian-dev/.obsidian/plugins/'
+# alias cdg='cd /mnt/Games/'
+# alias goto-bg3='/mnt/Games/SteamLibrary/steamapps/compatdata/1086940/pfx/drive_c/users/steamuser/AppData/Local/'
+# alias od='cd ~/Documents/obsidian-dev/.obsidian/plugins/'
