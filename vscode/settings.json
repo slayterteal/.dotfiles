@@ -13,10 +13,13 @@
     "extensions.experimental.affinity": {
         "asvetliakov.vscode-neovim": 1
     },
-    "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
     "zenMode.centerLayout": false,
     "zenMode.hideLineNumbers": false,
     "zenMode.hideStatusBar": false,
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "explorer.confirmDragAndDrop": false,
+    "editor.insertSpaces": true,
+    "window.density.editorTabHeight": "compact",
+    "workbench.editor.wrapTabs": true
 }
