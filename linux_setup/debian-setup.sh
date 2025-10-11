@@ -20,6 +20,7 @@ sudo apt install libevent ncurses tmux
 sudo apt install ripgrep
 sudo apt install wget
 sudo apt install unzip
+sudo apt install htop
 
 # install nerd font
 # not certain if this is actually necessary for wsl installs...
