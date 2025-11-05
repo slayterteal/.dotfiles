@@ -13,6 +13,7 @@ function CreateSymLink {
         Write-Output "$Destination already exists"
     }
     else {
+        Write-Output "Symlink created at: $Destination"
         New-Item -ItemType SymbolicLink -Path $Destination -Target $Source
     }
 }
@@ -30,9 +31,14 @@ $destination = "$HOME\AppData\Local\nvim"
 
 CreateSymLink -Destination $destination -Source $source
 
-# Create symlink for VSCode User Settings.json
+# Create symlink for VSCode User Settings.json and keybindings.json
 
 $source = "$HOME\.dotfiles\vscode\settings.json"
 $destination = "$HOME\AppData\Roaming\Code\User\settings.json" 
+
+CreateSymLink -Destination $destination -Source $source
+
+$source = "$HOME\.dotfiles\vscode\keybindings.json"
+$destination = "$HOME\AppData\Roaming\Code\User\keybindings.json" 
 
 CreateSymLink -Destination $destination -Source $source
