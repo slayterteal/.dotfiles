@@ -9,23 +9,27 @@ function CreateSymLink {
         [string]$Source
     )
 
+    # if the symlink file already exists, delete it
     if(Test-Path $Destination) {
-        Write-Output "$Destination already exists"
+        Write-Output "$Destination already exists, removing..."
+        Remove-Item $Destination
     }
-    else {
-        Write-Output "Symlink created at: $Destination"
-        New-Item -ItemType SymbolicLink -Path $Destination -Target $Source
-    }
+
+    # create the new symlink
+    Write-Output "Symlink created at: $Destination"
+    New-Item -ItemType SymbolicLink -Path $Destination -Target $Source
 }
 
 # ! This could be moved to a table and iterated over
+$winSourceDir = "$HOME\.dotfiles\windows_setup"
+
 # Create the symlink for profile
-$source = "$HOME\.dotfiles\Microsoft.PowerShell_profile.ps1"
+$source = "$winSourceDir\Microsoft.PowerShell_profile.ps1"
 $destination = "$HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
 
 CreateSymLink -Destination $destination -Source $source
 
-# Create symlink for neovim configuration
+# Create symlink for neovim configuration (which isn't in the windows source dir)
 $source = "$HOME\.dotfiles\nvim"
 $destination = "$HOME\AppData\Local\nvim"
 
@@ -42,3 +46,10 @@ $source = "$HOME\.dotfiles\vscode\keybindings.json"
 $destination = "$HOME\AppData\Roaming\Code\User\keybindings.json" 
 
 CreateSymLink -Destination $destination -Source $source
+
+# Cannot symlink powershell settings?
+# NOTE: this can break after updates!
+# $source = "$sourceDir\terminal\settings.json"
+# $destination = "$HOME\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json" 
+
+# CreateSymLink -Destination $destination -Source $source
