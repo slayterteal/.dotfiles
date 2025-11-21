@@ -11,6 +11,11 @@ There are several package managers on windows.
   - I wouldn't suggest doing this on a Work computer, several execution policies need to be updated which is something I don't think IT or SecOps would appreciate. 
 - [winget](https://github.com/microsoft/winget-cli)
   - Winget is a Microsoft sponsered package manager.
+- [scoop](https://scoop.sh/)
+  - installs everything inside the user space
+    - It's critical to run `scoop install mingw` to install the C compilers.
+
+> Scoop actually solves many of my frustrations with trying to get a basic C compiler stood up on windows machines
 
 ## Neovim
 
