@@ -14,20 +14,28 @@ fi
 # BASHRC
 ln -s $DOTFILES/.bashrc $HOME
 
-# NVIM 
+# NVIM
 if [[ ! -d "$CONFIG" ]]; then
-	mkdir -p "../.config"
+	mkdir -p "$HOME/.config"
 fi
 
 ln -s $DOTFILES/nvim $CONFIG/nvim
 
 # OH-MY-ZSH
-# oh-my-zsh is a git repo itself, and I'm not managing it 
+# oh-my-zsh is a git repo itself, and I'm not managing it
 # as a submodule
 ln -s $DOTFILES/.oh-my-zsh $HOME
 
 # TMUX
 ln -s $DOTFILES/.tmux.conf $HOME
+
+# ZED Editor
+if [[ ! -d "$CONFIG/zed" ]]; then
+  # make the zed dir if it doesn't exist to prevent errors
+  # (this only matters if this is ran w/o installing zed)
+  mkdir -p "$CONFIG/zed"
+fi
+ln -s $DOTFILES/zed/settings.json $CONIFG/zed/settings.json
 
 # ZSH
 ln -s $DOTFILES/.zshrc $HOME
@@ -35,7 +43,7 @@ ln -s $DOTFILES/.zshenv $HOME
 
 # if on mac set the VSCode settings in the correct spot
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    ln -s $DOTFILES/vscode/settings.json "$HOME/Library/Application Support/Code/User/settings.json" 
+    ln -s $DOTFILES/vscode/settings.json "$HOME/Library/Application Support/Code/User/settings.json"
 
 	# WEZTERM
 	ln -s $DOTFILES/.wezterm.lua $HOME

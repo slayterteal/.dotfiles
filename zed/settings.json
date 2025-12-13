@@ -1,0 +1,36 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "ui_font_family": "GeistMono Nerd Font",
+  "icon_theme": "Catppuccin Mocha",
+  "disable_ai": true,
+  "vim_mode": true,
+  "terminal": {
+    "font_size": 12.0,
+    "font_family": "GeistMono NF"
+  },
+  "base_keymap": "VSCode",
+  "relative_line_numbers": "enabled",
+  "gutter": {
+    "line_numbers": true
+  },
+  "title_bar": {
+    "show_sign_in": false
+  },
+  "buffer_font_family": "GeistMono NF",
+  "hard_tabs": false,
+  "tab_size": 2,
+  "ui_font_size": 14.0,
+  "buffer_font_size": 12.0,
+  "theme": {
+    "mode": "system",
+    "light": "Ayu Light",
+    "dark": "Catppuccin Mocha"
+  }
+}

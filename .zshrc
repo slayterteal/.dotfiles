@@ -72,7 +72,7 @@ ZSH_THEME="bira"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
-# Export the dump files to a cache folder 
+# Export the dump files to a cache folder
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 source $ZSH/oh-my-zsh.sh
 
@@ -107,6 +107,10 @@ source $ZSH/oh-my-zsh.sh
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 	export PATH="$PATH:/opt/nvim-linux64/bin"
 fi
+
+# rust path
+# This applies for Linux/MacOS Systems
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # LINUX SPECIFIC ALIASES
 # alias cdg='cd /mnt/Games/'
