@@ -1,7 +1,29 @@
 # This script will install all packages in the $packages table.
 #   If a listed package is undesired comment out or delete the 
 #   offending package.
-#
+
+# --- Helper: install a winget package by exact ID, skip if already present --
+function Install-WingetPackage {
+    param(
+        [Parameter(Mandatory)][string]$Id,
+        [string]$Name = $Id
+    )
+ 
+    $installed = winget list --id $Id -e --accept-source-agreements 2>$null | Select-String -SimpleMatch $Id
+ 
+    if ($installed) {
+        Write-Host "[skip] $Name already installed." -ForegroundColor Yellow
+        return
+    }
+ 
+    Write-Host "[install] $Name ($Id)..." -ForegroundColor Cyan
+    winget install --id $Id -e --silent --accept-source-agreements --accept-package-agreements
+ 
+    if ($LASTEXITCODE -ne 0) {
+        Write-Warning "$Name failed to install (exit code $LASTEXITCODE). Continuing with remaining packages."
+    }
+}
+
 # Format: WingetId, DisplayName
 $packages = @(
     @{ Id = "Neovim.Neovim";              Name = "Neovim" }
