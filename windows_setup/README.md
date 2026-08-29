@@ -9,6 +9,10 @@ My windows specific setup. Ironically the goal is to stay away from Microsoft pr
     - The best native shell I've found for windows thus far. Far better than the built-in programs at least.
     - `winget install --id Microsoft.Powershell`
 
+### Installing Neovim
+
+This process is a bit for involved as we need a number of packages to make this all work. Fortunately I've included in this directory a setup script for installing Neovim and the relevant packages. See [win_nvim_install.ps1](./win_nvim_install.ps1)
+
 ## Package managers for Windows
 
 There are several package managers on windows.

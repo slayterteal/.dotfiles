@@ -33,7 +33,8 @@ $packages = @(
     @{ Id = "junegunn.fzf";               Name = "fzf" }
     @{ Id = "zig.zig";                    Name = "Zig (C compiler for treesitter parsers)" } 
     @{ Id = "equalsraf.win32yank";        Name = "win32yank (clipboard support)" }
-    # TODO missing LazyGit
+    @{ Id = "JesseDuffield.lazygit";      Name = "LazyGit" }
+    @{ Id = "DEVCOM.Lua";                 Name = "Lua + LuaRocks" } # Community based, not offically from Lua.org
 )
  
 Write-Host "`nInstalling Neovim and dependencies via winget...`n" -ForegroundColor Green
