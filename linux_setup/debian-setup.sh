@@ -21,6 +21,7 @@ sudo apt install ripgrep
 sudo apt install wget
 sudo apt install unzip
 sudo apt install htop
+sudo apt install tree-sitter-cli # needed for neovim treesitter
 
 # install nerd font
 # not certain if this is actually necessary for wsl installs...
