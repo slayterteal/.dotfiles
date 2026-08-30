@@ -13,21 +13,33 @@ My windows specific setup. Ironically the goal is to stay away from Microsoft pr
 
 This process is a bit for involved as we need a number of packages to make this all work. Fortunately I've included in this directory a setup script for installing Neovim and the relevant packages. See [win_nvim_install.ps1](./win_nvim_install.ps1)
 
+Additional setup instructions:
+
+- Rust is required
+    - `winget install Rustlang.Rustup`
+- Install the treesitter-cli
+    - this requires clang (`winget install LLVM.LLVM`)
+        - `setx LIBCLANG_PATH "path to LLVM install"`
+        - make to sure to add it to your system PATH
+    - `cargo install tree-sitter-cli`
+
+> Rust, and clang install are included in the `win_nvim_install.ps1`
+
 ## Package managers for Windows
 
 There are several package managers on windows.
 
 - [Chocolatey](https://chocolatey.org/install)
-    - I wouldn't suggest doing this on a Work computer, several execution policies need to be updated which is something I don't think IT or SecOps would appreciate. 
+    - I wouldn't suggest doing this on a Work computer, several execution policies need to be updated which is something I don't think IT or SecOps would appreciate.
 - [winget](https://github.com/microsoft/winget-cli)
-    - Winget is a Microsoft sponsered package manager.
+    - Winget is a Microsoft sponsered package manager and ships with the windows app store.
 - [scoop](https://scoop.sh/)
     - installs everything inside the user space
     - It's critical to run `scoop install mingw` to install the C compilers.
 
 > Scoop actually solves many of my frustrations with trying to get a basic C compiler stood up on windows machines
 
-## Cygwin 
+## Cygwin
 
 `setup-x86_64.exe` is the install tool for Cygwin. Use it to install the app, add plugins, etc.
 
@@ -35,6 +47,6 @@ Cygwin is a POSIX compatibility layer that provides a Unix-like environment on W
 
 # Debloat!
 
-Windows comes prepackaged with all sorts of things we. Do. Not. Want. 
+Windows comes prepackaged with all sorts of things we. Do. Not. Want.
 
 Fortunatly there is a handle tool provided [here](https://github.com/raphire/win11debloat) that will clean things up for us.

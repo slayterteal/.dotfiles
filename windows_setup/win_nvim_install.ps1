@@ -1,5 +1,5 @@
 # This script will install all packages in the $packages table.
-#   If a listed package is undesired comment out or delete the 
+#   If a listed package is undesired comment out or delete the
 #   offending package.
 
 # --- Helper: install a winget package by exact ID, skip if already present --
@@ -8,17 +8,17 @@ function Install-WingetPackage {
         [Parameter(Mandatory)][string]$Id,
         [string]$Name = $Id
     )
- 
+
     $installed = winget list --id $Id -e --accept-source-agreements 2>$null | Select-String -SimpleMatch $Id
- 
+
     if ($installed) {
         Write-Host "[skip] $Name already installed." -ForegroundColor Yellow
         return
     }
- 
+
     Write-Host "[install] $Name ($Id)..." -ForegroundColor Cyan
     winget install --id $Id -e --silent --accept-source-agreements --accept-package-agreements
- 
+
     if ($LASTEXITCODE -ne 0) {
         Write-Warning "$Name failed to install (exit code $LASTEXITCODE). Continuing with remaining packages."
     }
@@ -31,14 +31,16 @@ $packages = @(
     @{ Id = "BurntSushi.ripgrep.MSVC";    Name = "ripgrep" }
     @{ Id = "sharkdp.fd";                 Name = "fd" }
     @{ Id = "junegunn.fzf";               Name = "fzf" }
-    @{ Id = "zig.zig";                    Name = "Zig (C compiler for treesitter parsers)" } 
+    @{ Id = "zig.zig";                    Name = "Zig (C compiler for treesitter parsers)" }
     @{ Id = "equalsraf.win32yank";        Name = "win32yank (clipboard support)" }
     @{ Id = "JesseDuffield.lazygit";      Name = "LazyGit" }
     @{ Id = "DEVCOM.Lua";                 Name = "Lua + LuaRocks" } # Community based, not offically from Lua.org
+    @{ Id = "LLVM.LLVM";                  Name = "Clang" }
+    @{ Id = "Rustlang.Rustup";            Name = "Rust" }
 )
- 
+
 Write-Host "`nInstalling Neovim and dependencies via winget...`n" -ForegroundColor Green
- 
+
 foreach ($pkg in $packages) {
     Install-WingetPackage -Id $pkg.Id -Name $pkg.Name
 }
