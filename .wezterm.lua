@@ -6,8 +6,10 @@ config.use_fancy_tab_bar = false
 -- END GENERAL
 
 -- FONTS
-config.font = wezterm.font("Monocraft")
-
+config.font = wezterm.font {
+  family = "Monocraft",
+  harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
+}
 -- TODO: Set Font based on detected OS
 -- I don't think this works quite right, regardless it does update the font size
 local BinaryFormat = package.cpath:match("%p[\\|/]?%p(%a+)")
