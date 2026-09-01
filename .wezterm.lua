@@ -6,7 +6,7 @@ config.use_fancy_tab_bar = false
 -- END GENERAL
 
 -- FONTS
-config.font = wezterm.font("GeistMono Nerd Font")
+config.font = wezterm.font("Monocraft")
 
 -- TODO: Set Font based on detected OS
 -- I don't think this works quite right, regardless it does update the font size
