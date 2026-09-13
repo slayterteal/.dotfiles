@@ -1,17 +1,17 @@
 -- Guard clause to prevent loading if neovim is old
 if vim.fn.has("nvim-0.8") == 0 then
+    print("Please use neovim 0.11+!")
     return
 end
 
--- Create a global user command :GreetMe
 vim.api.nvim_create_user_command("GreetMe", function()
     -- Safely require the main module and run the function
-    require("gformatter").say_hello()
+    require("gformatter").greet_me()
 end, {})
 
-vim.api.nvim_create_user_command("AddCommentBlock", function()
+vim.api.nvim_create_user_command("AddFormatCommentBlock", function()
     -- Safely require the main module and run the function
-    require("gformatter").add_comment_block()
+    require("gformatter").add_format_comment_block()
 end, {})
 
 -- TODO: This keymap should be something handled
@@ -19,8 +19,8 @@ end, {})
 -- Add a handy keymap to add a command block
 vim.keymap.set(
   { 'n', 'v', 'i', 'x', 'o' }, -- Command is available in all modes
-  '<C-/>',
-  '<cmd>AddCommentBlock<CR>',
+  '<c-b>',
+  '<cmd>AddFormatCommentBlock<CR>',
   { desc = 'Add gComment Block' }
 )
 
