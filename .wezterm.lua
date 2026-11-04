@@ -7,7 +7,7 @@ config.use_fancy_tab_bar = false
 
 -- FONTS
 config.font = wezterm.font {
-  family = "Monocraft",
+  family = "GeistMono Nerd Font",
   harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
 }
 -- TODO: Set Font based on detected OS
