@@ -1,0 +1,5 @@
+
+# settings related to git
+git:
+  # don't automatically fetch when opening lazygit
+  autoFetch: false
